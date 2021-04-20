@@ -46,6 +46,9 @@ class RegisterScreen extends StatelessWidget {
                       ),
 
                     ),
+                    HorizontalSpace(
+                      space: SizeConfig().blockSizeHorizontal * 5,
+                    ),
                     CommonTextControllers.customTextField(
 
                         labelText: 'اسم المستخدم ',

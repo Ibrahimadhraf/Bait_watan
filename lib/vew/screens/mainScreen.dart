@@ -20,67 +20,65 @@ class MainScreen extends StatelessWidget {
   Widget buttonNavigationBar() {
     return GetBuilder<MainViewModel>(
       init: Get.find(),
-      builder: (controller) => Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: SizeConfig().safeBlockVertical * 2.5),
-        child: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-                label: 'الرئيسيه',
-                icon: Padding(
-                  padding:
-                      EdgeInsets.only(top: SizeConfig().safeBlockVertical * 2),
-                  child: Image.asset(
-                    'images/home_black_24dp.png',
-                    fit: BoxFit.contain,
-                    width: SizeConfig().safeBlockVertical * 3,
-                  ),
-                )),
-            BottomNavigationBarItem(
-                label: 'الأعلانات',
+      builder: (controller) => BottomNavigationBar(
 
-                icon: Padding(
-                  padding:
-                      EdgeInsets.only(top: SizeConfig().safeBlockVertical * 2),
-                  child: Image.asset(
-                    'images/advertesment.png',
-                    fit: BoxFit.contain,
-                    width: SizeConfig().safeBlockVertical * 3,
-                  ),
-                )),
-            BottomNavigationBarItem(
-                label: 'المفضله',
+        items: [
+          BottomNavigationBarItem(
+              label: 'الرئيسيه',
+              icon: Padding(
+                padding:
+                    EdgeInsets.only(top: SizeConfig().safeBlockVertical * 2),
+                child: Image.asset(
+                  'images/home_black_24dp.png',
+                  fit: BoxFit.contain,
+                  width: SizeConfig().safeBlockVertical * 3,
+                ),
+              )),
+          BottomNavigationBarItem(
+              label: 'الأعلانات',
 
-                icon: Padding(
-                  padding:
-                      EdgeInsets.only(top: SizeConfig().safeBlockVertical * 2),
-                  child: Image.asset(
-                    'images/favorite_black_24dp.png',
-                    fit: BoxFit.contain,
-                    width: SizeConfig().safeBlockVertical * 3,
-                  ),
-                )),
-            BottomNavigationBarItem(
-                label: 'المزيد',
+              icon: Padding(
+                padding:
+                    EdgeInsets.only(top: SizeConfig().safeBlockVertical * 2),
+                child: Image.asset(
+                  'images/advertesment.png',
+                  fit: BoxFit.contain,
+                  width: SizeConfig().safeBlockVertical * 3,
+                ),
+              )),
+          BottomNavigationBarItem(
+              label: 'المفضله',
 
-                icon: Padding(
-                  padding:
-                      EdgeInsets.only(top: SizeConfig().safeBlockVertical * 2),
-                  child: Image.asset(
-                    'images/more.png',
-                    fit: BoxFit.contain,
-                    width: SizeConfig().safeBlockVertical * 3,
-                  ),
-                )),
-          ],
-          elevation: 6,
-          selectedItemColor: ApplicationColors().textColor,
-          backgroundColor: ApplicationColors().primaryColor,
-          currentIndex: controller.navigatorValue,
-          onTap: (index) {
-            controller.changeNavigatorValue(index);
-          },
-        ),
+              icon: Padding(
+                padding:
+                    EdgeInsets.only(top: SizeConfig().safeBlockVertical * 2),
+                child: Image.asset(
+                  'images/favorite_black_24dp.png',
+                  fit: BoxFit.contain,
+                  width: SizeConfig().safeBlockVertical * 3,
+                ),
+              )),
+          BottomNavigationBarItem(
+              label: 'المزيد',
+
+              icon: Padding(
+                padding:
+                    EdgeInsets.only(top: SizeConfig().safeBlockVertical * 2),
+                child: Image.asset(
+                  'images/more.png',
+                  fit: BoxFit.contain,
+                  width: SizeConfig().safeBlockVertical * 3,
+                ),
+              )),
+        ],
+        elevation: 6,
+
+        selectedItemColor: ApplicationColors().textColor,
+        backgroundColor: Colors.transparent,
+        currentIndex: controller.navigatorValue,
+        onTap: (index) {
+          controller.changeNavigatorValue(index);
+        },
       ),
     );
   }

@@ -68,6 +68,9 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  HorizontalSpace(
+                    space: SizeConfig().blockSizeHorizontal * 5,
+                  ),
                   CommonTextControllers.customTextField(
                     controller: phoneTextEditingController,
                     formKey: phoneFormFieldState,

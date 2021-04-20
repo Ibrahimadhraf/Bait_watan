@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                           SizeConfig().fontSize15),
                       validator: (value) {
                         if (value.length < 11) {
-                          return 'من فضلك أدخل رقم هاتف صحيح';
+                          return '';
                         } else {
                           return null;
                         }
@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         VerticalSpace(
-                          space: SizeConfig().blockSizeVertical * 15,
+                          space: SizeConfig().blockSizeVertical * 16,
                         ),
                         Row(
                           children: [
@@ -223,7 +223,7 @@ class HomeScreen extends StatelessWidget {
                                 onSubmitted: (trim) {}),
                           ),
                           VerticalSpace(
-                            space: SizeConfig().blockSizeVertical * 7,
+                            space: SizeConfig().blockSizeVertical * 6,
                           ),
                           Row(
                             children: [
@@ -334,7 +334,7 @@ class HomeScreen extends StatelessWidget {
                                 onSubmitted: (trim) {}),
                           ),
                           VerticalSpace(
-                            space: SizeConfig().blockSizeVertical * 7,
+                            space: SizeConfig().blockSizeVertical * 8,
                           ),
                           Row(
                             children: [
@@ -424,7 +424,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(
-                              left: SizeConfig().blockSizeHorizontal * 7),
+                              left: SizeConfig().blockSizeHorizontal * 2),
                           child: Row(
                             children: [
                               Row(
@@ -437,25 +437,25 @@ class HomeScreen extends StatelessWidget {
                                         color: ApplicationColors().textColor,
                                       ),
                                       CostumeText(
-                                        text: ref.sliderValue.toString(),
-                                        fontSize: SizeConfig().fontSize15,
+                                        text: '${ref.sliderValueMax}'+'-'+'${ref.sliderValueMin}',
+                                        fontSize: SizeConfig().fontSize14,
                                         color: ApplicationColors().textColor,
                                       ),
                                     ],
                                   ),
                                   VerticalSpace(
-                                    space: SizeConfig().blockSizeVertical * 18,
+                                    space: SizeConfig().blockSizeVertical * 19,
                                   ),
                                   Row(
                                     children: [
                                       CostumeText(
                                         text: 'المساحه',
                                         color: ApplicationColors().textColor,
-                                        fontSize: SizeConfig().fontSize16,
+                                        fontSize: SizeConfig().fontSize15,
                                       ),
                                       Image.asset(
                                         'images/plan.png',
-                                        width: SizeConfig().blockSizeVertical * 6,
+                                        width: SizeConfig().blockSizeVertical * 4,
                                         height: SizeConfig().blockSizeVertical * 3,
                                       )
                                     ],
@@ -469,16 +469,42 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right:8.0 ,left: 8.0),
-                      child: Slider(
-                        value: ref.sliderValue,
-                        max: 700,
-                        min: 0.0,
-                        activeColor: ApplicationColors().textColor,
-                        inactiveColor: Colors.grey,
-                        onChanged: (double newValue) {
-                          ref.updateSlider(newValue);
+                      child:FlutterSlider(
+                        trackBar: FlutterSliderTrackBar(
+                          inactiveTrackBar: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey,
+                            border: Border.all(width: 3, color:  Colors.grey),
+                          ),
+                          activeTrackBar: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                              color: ApplicationColors().textColor,
+                          ),
+                        ),
+                        handler: FlutterSliderHandler(
+                          decoration: BoxDecoration(),
+                          child: Container(
+                              padding: EdgeInsets.all(5),
+                              child: Icon(Icons.circle, size: SizeConfig().fontSize17,color: ApplicationColors().textColor,)),
+                        ),
+                        values: [30, 420],
+                        rangeSlider: true,
+
+                        max: 500,
+                        min: 0,
+                        rightHandler: FlutterSliderHandler(
+                            decoration: BoxDecoration(),
+
+                          child:Container(
+                              padding: EdgeInsets.all(5),
+                              child:
+
+                          Icon(Icons.circle, size: SizeConfig().fontSize17,color: ApplicationColors().textColor,))
+                        ),
+                        onDragging: (handlerIndex, lowerValue, upperValue) {
+                                         ref.updateSlider(maxValue: upperValue ,minValue: lowerValue);
                         },
-                      ),
+                      )
                     ),
                   ],
                 ),
@@ -530,26 +556,32 @@ class HomeScreen extends StatelessWidget {
                   controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
                 ),
               ),
-              GestureDetector(
-                child: Container(
-                  width: SizeConfig().blockSizeVertical*40,
-                  height: SizeConfig().blockSizeVertical*6,
-                  decoration: BoxDecoration(
-                      color: ApplicationColors().textColor,
-                      border: Border.all(
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  child: Container(
+                    width: SizeConfig().blockSizeVertical*40,
+                    height: SizeConfig().blockSizeVertical*6,
+                    decoration: BoxDecoration(
                         color: ApplicationColors().textColor,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular( SizeConfig().blockSizeVertical*25))
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: (){
+                        border: Border.all(
+                          color: ApplicationColors().textColor,
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular( SizeConfig().blockSizeVertical*25))
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Center(
+                        child: GestureDetector(
+                          onTap: (){
 
-                      },
-                      child: CostumeText(
-                        text: 'بحث',
-                        color: Colors.white,
-                        fontSize: SizeConfig().fontSize15,
+                          },
+                          child: CostumeText(
+                            text: 'بحث',
+                            color: Colors.white,
+                            fontSize: SizeConfig().fontSize15,
+                          ),
+                        ),
                       ),
                     ),
                   ),
