@@ -34,9 +34,12 @@ class CommonTextControllers {
         FocusNode focusNode,
         Function onSubmitted,
        String language,
+        bool inHome=false,
+        bool inTam=false,
         List<TextInputFormatter> inputFormatter}) {
     return Container(
-      width: width ?? SizeConfig().safeBlockHorizontal * 70,
+      width: width ?? SizeConfig().safeBlockHorizontal * .2,
+      height: height?? SizeConfig().safeBlockHorizontal * 8,
       alignment: Alignment.center,
 
       margin: containerPadding ??
@@ -59,7 +62,109 @@ class CommonTextControllers {
         focusNode: focusNode,
         cursorColor: ApplicationColors().textColor,
         onFieldSubmitted: onSubmitted,
-          decoration: InputDecoration(
+          decoration:inTam?InputDecoration(
+
+            contentPadding: EdgeInsets.all(SizeConfig().safeBlockHorizontal * 1),
+            labelText: labelText ?? '',
+            labelStyle:TextStyle(
+              color: ApplicationColors().gray,
+              // fontWeight: FontWeight.bold,
+              fontSize: SizeConfig().fontSize15,
+            ),
+            suffixIcon: suffix != null
+                ? GestureDetector(
+                onTap: onSuffixPressVCL,
+                child: Padding(
+                  padding: EdgeInsets.all(SizeConfig().safeBlockHorizontal * 0),
+                  child: suffix,
+                ))
+                : Container(
+              width: 0,
+              height: 0,
+            ),
+            prefixIcon: prefix != null
+                ? GestureDetector(onTap: onPrefixPressVCL, child: prefix)
+                : Container(
+              width: 0,
+              height: 0,
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(10.0),
+              ),
+              borderSide: BorderSide(color: ApplicationColors().textColor),
+            ),
+            enabledBorder: enabledBorder ??
+                OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderSide: BorderSide(color: ApplicationColors().textColor),
+                ),
+            focusedBorder: focusedBorder ??
+                OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderSide: BorderSide(color: ApplicationColors().textColor),
+                ),
+
+            errorMaxLines: 2,
+            errorStyle:
+            TextStyle(color: Colors.red, fontSize: SizeConfig().fontSize12),
+            errorBorder: UnderlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                borderSide: BorderSide(
+                  color: Colors.teal,
+                )),
+          ):inHome?InputDecoration(
+
+            contentPadding: EdgeInsets.all(SizeConfig().safeBlockHorizontal * 1),
+            labelText: labelText ?? '',
+            labelStyle:TextStyle(
+              color: ApplicationColors().gray,
+              // fontWeight: FontWeight.bold,
+              fontSize: SizeConfig().fontSize15,
+            ),
+            suffixIcon: suffix != null
+                ? GestureDetector(
+                onTap: onSuffixPressVCL,
+                child: Padding(
+                  padding: EdgeInsets.all(SizeConfig().safeBlockHorizontal * 0),
+                  child: suffix,
+                ))
+                : Container(
+              width: 0,
+              height: 0,
+            ),
+            prefixIcon: prefix != null
+                ? GestureDetector(onTap: onPrefixPressVCL, child: prefix)
+                : Container(
+              width: 0,
+              height: 0,
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(10.0),
+              ),
+              borderSide: BorderSide(color: ApplicationColors().textColor),
+            ),
+            enabledBorder: enabledBorder ??
+                OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                  borderSide: BorderSide(color: ApplicationColors().textColor),
+                ),
+            focusedBorder: focusedBorder ??
+                OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                  borderSide: BorderSide(color: ApplicationColors().textColor),
+                ),
+
+            errorMaxLines: 2,
+            errorStyle:
+            TextStyle(color: Colors.red, fontSize: SizeConfig().fontSize12),
+            errorBorder: UnderlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                borderSide: BorderSide(
+                  color: Colors.teal,
+                )),
+          ): InputDecoration(
           contentPadding: EdgeInsets.all(SizeConfig().safeBlockHorizontal * 1),
           labelText: labelText ?? '',
               labelStyle:TextStyle(

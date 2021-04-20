@@ -1,3 +1,4 @@
+import 'package:bait_watan/vew/screens/mainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:bait_watan/vew/helpers/app_utils.dart';
 import 'package:bait_watan/vew/helpers/application_colors.dart';
@@ -133,7 +134,7 @@ class LoginScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        Center(
                           child: GestureDetector(
                             child: CostumeText(
                               text: 'نسيت كلمة السر؟',
@@ -145,18 +146,7 @@ class LoginScreen extends StatelessWidget {
                             },
                           ),
                         ),
-                        Expanded(
-                          child: CheckboxListTile(
 
-                            activeColor: ApplicationColors().textColor,
-                             title: CostumeText(text: 'تذكرني', fontSize: SizeConfig().fontSize15,color: ApplicationColors().textColor,),
-                            value:ref.isRemember,
-                            onChanged: (newValue) {
-                             ref.toggleRememberMe(newValue);
-                            },
-                            controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
-                          ),
-                        ),
 
 
                       ],
@@ -180,7 +170,7 @@ class LoginScreen extends StatelessWidget {
                         child: GestureDetector(
                           onTap: (){
                          if(phoneFormFieldState.currentState.validate()&&phoneFormFieldState.currentState.validate()){
-                           Get..offAll(()=>HomeScreen());
+                           Get.offAll(()=>MainScreen());
                          }
                           },
                           child: CostumeText(

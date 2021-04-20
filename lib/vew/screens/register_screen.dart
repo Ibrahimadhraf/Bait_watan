@@ -1,3 +1,4 @@
+import 'package:bait_watan/vew/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bait_watan/vew/helpers/application_colors.dart';
 import 'package:bait_watan/vew/helpers/size_config.dart';
@@ -197,10 +198,10 @@ class RegisterScreen extends StatelessWidget {
                         child: Center(
                           child: GestureDetector(
                             onTap: (){
-
+                              Get.to(()=>LoginScreen());
                             },
                             child: CostumeText(
-                              text: 'تسجيل دخول ',
+                              text: 'تسجيل حساب جديد ',
                               color: Colors.white,
                               fontSize: SizeConfig().fontSize15,
                             ),
@@ -225,7 +226,7 @@ class RegisterScreen extends StatelessWidget {
                                       color: ApplicationColors().textColor,
                                     ),
                                     onTap: (){
-                                      Get.to(()=>RegisterScreen());
+                                      Get.to(()=>LoginScreen());
                                     },
                                   ),
                                   VerticalSpace(
