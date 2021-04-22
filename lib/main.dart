@@ -1,3 +1,4 @@
+import 'package:bait_watan/vew/screens/mainScreen.dart';
 import 'package:bait_watan/view_model/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:bait_watan/vew/screens/splash_screen.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
 
         ),
-         home: SplashScreen(),
+         home: MainScreen(),
       ),
     );
   }

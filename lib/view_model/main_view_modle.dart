@@ -17,13 +17,13 @@ class MainViewModel extends GetxController{
       case 0:
         currentScreen=HomeScreen();
         break;
-      case 1:
+      case 2:
         currentScreen=FavouriteScreen();
         break;
-      case 2:
+      case 1:
         currentScreen=AdvertisementScreen();
         break;
-      case 2:
+      case 3:
         currentScreen=MoreScreen();
         break;
     }

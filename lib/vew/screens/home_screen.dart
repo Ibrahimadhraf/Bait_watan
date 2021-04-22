@@ -1,7 +1,6 @@
 import 'package:bait_watan/vew/helpers/app_utils.dart';
 import 'package:bait_watan/vew/widgets/common_text_controller.dart';
 import 'package:bait_watan/vew/widgets/custome_text.dart';
-import 'package:bait_watan/vew/widgets/horizontal_space.dart';
 import 'package:bait_watan/vew/widgets/vertical_space.dart';
 import 'package:bait_watan/view_model/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       init: Get.put(HomeScreenViewModel()),
       builder: (ref) => Scaffold(
         appBar: AppBar(
-          shadowColor: Colors.blue,
+          shadowColor: ApplicationColors().primaryColor,
           elevation: 8,
           centerTitle: true,
           backgroundColor: ApplicationColors().primaryColor,
