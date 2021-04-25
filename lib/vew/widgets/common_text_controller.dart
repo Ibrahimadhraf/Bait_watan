@@ -111,7 +111,7 @@ class CommonTextControllers {
             errorBorder: UnderlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(2.0)),
                 borderSide: BorderSide(
-                  color: Colors.teal,
+                  color: Colors.red,
                 )),
           ):inHome?InputDecoration(
 
@@ -143,7 +143,7 @@ class CommonTextControllers {
               borderRadius: BorderRadius.all(
                 Radius.circular(10.0),
               ),
-              borderSide: BorderSide(color: ApplicationColors().textColor),
+              borderSide: BorderSide(color:fillColor?? ApplicationColors().textColor),
             ),
             enabledBorder: enabledBorder ??
                 OutlineInputBorder(

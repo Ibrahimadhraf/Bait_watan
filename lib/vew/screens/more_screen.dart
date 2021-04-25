@@ -1,5 +1,8 @@
 import 'package:bait_watan/vew/helpers/application_colors.dart';
 import 'package:bait_watan/vew/helpers/size_config.dart';
+import 'package:bait_watan/vew/screens/compere_screen.dart';
+import 'package:bait_watan/vew/screens/contact_us_screen.dart';
+import 'package:bait_watan/vew/screens/follow_advertesmentscreen.dart';
 import 'package:bait_watan/vew/screens/profile_screen.dart';
 import 'package:bait_watan/vew/widgets/custome_text.dart';
 import 'package:bait_watan/vew/widgets/horizontal_space.dart';
@@ -100,74 +103,40 @@ class MoreScreen extends StatelessWidget {
             width: SizeConfig().screenWidth ,
             color: ApplicationColors().gray,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Image.asset(
-                  'images/Forward arrow.png',
-                  width: SizeConfig().blockSizeVertical * 5,
-                  height: SizeConfig().blockSizeVertical * 4,
-                ),
-                VerticalSpace(
-                  space:SizeConfig().blockSizeVertical * 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CostumeText(
-                      text: 'المقارنه',
-                      color: ApplicationColors().textColor,
-                      fontSize: SizeConfig().fontSize16,
-
-                    ),
-                    Image.asset(
-                      'images/balanc.png',
-                      width: SizeConfig().blockSizeVertical * 5,
-                      height: SizeConfig().blockSizeVertical * 5,
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-          Container(
-            height: SizeConfig().blockSizeHorizontal * .5,
-            width: SizeConfig().screenWidth ,
-            color: ApplicationColors().gray,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Image.asset(
-                  'images/Forward arrow.png',
-                  width: SizeConfig().blockSizeVertical * 5,
-                  height: SizeConfig().blockSizeVertical * 4,
-                ),
-                VerticalSpace(
-                  space:SizeConfig().blockSizeVertical * 24.5,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding:  EdgeInsets.only(right:8.0),
-                      child: CostumeText(
-                        text: 'تتبع الإعلانات'+"",
+          GestureDetector(
+            onTap: (){
+              Get.to(CompareScreen());
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'images/Forward arrow.png',
+                    width: SizeConfig().blockSizeVertical * 5,
+                    height: SizeConfig().blockSizeVertical * 4,
+                  ),
+                  VerticalSpace(
+                    space:SizeConfig().blockSizeVertical * 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CostumeText(
+                        text: 'المقارنه',
                         color: ApplicationColors().textColor,
                         fontSize: SizeConfig().fontSize16,
 
                       ),
-                    ),
-                    Image.asset(
-                      'images/XMLID_2403_.png',
-                      width: SizeConfig().blockSizeVertical * 5,
-                      height: SizeConfig().blockSizeVertical * 5,
-                    ),
-                  ],
-                )
-              ],
+                      Image.asset(
+                        'images/balanc.png',
+                        width: SizeConfig().blockSizeVertical * 5,
+                        height: SizeConfig().blockSizeVertical * 5,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           Container(
@@ -175,35 +144,84 @@ class MoreScreen extends StatelessWidget {
             width: SizeConfig().screenWidth ,
             color: ApplicationColors().gray,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Image.asset(
-                  'images/Forward arrow.png',
-                  width: SizeConfig().blockSizeVertical * 5,
-                  height: SizeConfig().blockSizeVertical * 4,
-                ),
-                VerticalSpace(
-                  space:SizeConfig().blockSizeVertical * 27,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CostumeText(
-                      text: 'تواصل معنا',
-                      color: ApplicationColors().textColor,
-                      fontSize: SizeConfig().fontSize16,
+          GestureDetector(
+            onTap: (){
+              Get.to(FollowAdvertisementScreen());
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'images/Forward arrow.png',
+                    width: SizeConfig().blockSizeVertical * 5,
+                    height: SizeConfig().blockSizeVertical * 4,
+                  ),
+                  VerticalSpace(
+                    space:SizeConfig().blockSizeVertical * 24.5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding:  EdgeInsets.only(right:8.0),
+                        child: CostumeText(
+                          text: 'تتبع الإعلانات'+"",
+                          color: ApplicationColors().textColor,
+                          fontSize: SizeConfig().fontSize16,
 
-                    ),
-                    Image.asset(
-                      'images/operator.png',
-                      width: SizeConfig().blockSizeVertical * 5,
-                      height: SizeConfig().blockSizeVertical * 5,
-                    ),
-                  ],
-                )
-              ],
+                        ),
+                      ),
+                      Image.asset(
+                        'images/XMLID_2403_.png',
+                        width: SizeConfig().blockSizeVertical * 5,
+                        height: SizeConfig().blockSizeVertical * 5,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+          Container(
+            height: SizeConfig().blockSizeHorizontal * .5,
+            width: SizeConfig().screenWidth ,
+            color: ApplicationColors().gray,
+          ),
+          GestureDetector(
+            onTap: (){
+              Get.to(ContactUsScreen());
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'images/Forward arrow.png',
+                    width: SizeConfig().blockSizeVertical * 5,
+                    height: SizeConfig().blockSizeVertical * 4,
+                  ),
+                  VerticalSpace(
+                    space:SizeConfig().blockSizeVertical * 27,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CostumeText(
+                        text: 'تواصل معنا',
+                        color: ApplicationColors().textColor,
+                        fontSize: SizeConfig().fontSize16,
+
+                      ),
+                      Image.asset(
+                        'images/operator.png',
+                        width: SizeConfig().blockSizeVertical * 5,
+                        height: SizeConfig().blockSizeVertical * 5,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           Container(
