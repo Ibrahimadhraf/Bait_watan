@@ -25,7 +25,7 @@ class FollowAdvertisementScreen extends StatelessWidget {
           ),
         ),
         title: CostumeText(
-          text: 'مقارنة الإعلانات',
+          text: ' تتبع الإعلانات',
           color: ApplicationColors().textColor,
           fontSize: SizeConfig().fontSize17,
         ),
@@ -85,7 +85,11 @@ class FollowAdvertisementScreen extends StatelessWidget {
                                   width: SizeConfig().blockSizeVertical * 5,
                                   height: SizeConfig().blockSizeVertical * 4,
                                 ),
-
+                                Image.asset(
+                                  'images/balance.png',
+                                  width: SizeConfig().blockSizeVertical * 5,
+                                  height: SizeConfig().blockSizeVertical * 4,
+                                ),
                                 CostumeText(
                                   text:'الحي,المنطقه,رقم القطعه' ,
                                   color: Colors.white,

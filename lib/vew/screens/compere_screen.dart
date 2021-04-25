@@ -184,10 +184,11 @@ class CompareScreen extends StatelessWidget {
                           ),
                           Column(
                             children: [
-                              CostumeText(
-                                text: 'ttt',
-                                color: ApplicationColors().textColor,
-                                fontSize: SizeConfig().fontSize15,
+                              Image.asset(
+                                'images/money.png',
+                                color: ApplicationColors().gray,
+                                width: SizeConfig().blockSizeVertical * 5,
+                                height: SizeConfig().blockSizeVertical * 4,
                               ),
                               CostumeText(
                                 text: 'تثبيت الدولار',

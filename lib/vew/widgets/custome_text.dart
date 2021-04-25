@@ -1,4 +1,5 @@
 
+import 'package:bait_watan/vew/widgets/styles.dart';
 import 'package:flutter/material.dart';
 
 class CostumeText extends StatelessWidget {
@@ -15,5 +16,14 @@ class CostumeText extends StatelessWidget {
         color: color ,
         fontSize: fontSize
     ),);
+  }
+}
+class CostumeMoreText extends StatelessWidget {
+  final String text;
+  @override
+  CostumeMoreText({this.text});
+
+  Widget build(BuildContext context) {
+    return  Text(text ,style:MoreWidgetStyle,   maxLines: 3,);
   }
 }
