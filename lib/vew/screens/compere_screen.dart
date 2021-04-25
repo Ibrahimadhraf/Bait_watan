@@ -45,7 +45,7 @@ class CompareScreen extends StatelessWidget {
                       Radius.circular(SizeConfig().blockSizeVertical * 2),
                     )),
                 width: SizeConfig().screenWidth * .9,
-                height: SizeConfig().screenHeight * .7,
+                height: SizeConfig().screenHeight * .68,
                 child: Column(
                   children: [
                     Container(
@@ -97,10 +97,19 @@ class CompareScreen extends StatelessWidget {
                                 width: SizeConfig().blockSizeVertical * 5,
                                 height: SizeConfig().blockSizeVertical * 4,
                               ),
-                              CostumeText(
-                                text: '    سعر المتر',
-                                color: ApplicationColors().textColor,
-                                fontSize: SizeConfig().fontSize15,
+                              Column(
+                                children: [
+                                  CostumeText(
+                                    text: '    سعر المتر',
+                                    color: ApplicationColors().textColor,
+                                    fontSize: SizeConfig().fontSize15,
+                                  ),
+                                  CostumeText(
+                                    text: ' ٠٠. ٤٠٠  ج م',
+                                    color: ApplicationColors().gray,
+                                    fontSize: SizeConfig().fontSize14,
+                                  ),
+                                ],
                               )
                             ],
                           ),
@@ -157,7 +166,7 @@ class CompareScreen extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      height: SizeConfig().blockSizeHorizontal * .05,
+                      height: SizeConfig().blockSizeHorizontal * .5,
                       width: SizeConfig().screenWidth,
                       color: ApplicationColors().gray,
                     ),
@@ -175,10 +184,19 @@ class CompareScreen extends StatelessWidget {
                                 width: SizeConfig().blockSizeVertical * 5,
                                 height: SizeConfig().blockSizeVertical * 4,
                               ),
-                              CostumeText(
-                                text: 'الإستلام',
-                                color: ApplicationColors().textColor,
-                                fontSize: SizeConfig().fontSize15,
+                              Column(
+                                children: [
+                                  CostumeText(
+                                    text: 'الإستلام',
+                                    color: ApplicationColors().textColor,
+                                    fontSize: SizeConfig().fontSize15,
+                                  ),
+                                  CostumeText(
+                                    text: ' ٠٠. ٤٠٠  ج م',
+                                    color: ApplicationColors().gray,
+                                    fontSize: SizeConfig().fontSize14,
+                                  ),
+                                ],
                               )
                             ],
                           ),
@@ -190,10 +208,19 @@ class CompareScreen extends StatelessWidget {
                                 width: SizeConfig().blockSizeVertical * 5,
                                 height: SizeConfig().blockSizeVertical * 4,
                               ),
-                              CostumeText(
-                                text: 'تثبيت الدولار',
-                                color: ApplicationColors().textColor,
-                                fontSize: SizeConfig().fontSize15,
+                              Column(
+                                children: [
+                                  CostumeText(
+                                    text: 'تثبيت الدولار',
+                                    color: ApplicationColors().textColor,
+                                    fontSize: SizeConfig().fontSize15,
+                                  ),
+                                  CostumeText(
+                                    text: ' ٠٠. ٤٠٠  ج م',
+                                    color: ApplicationColors().gray,
+                                    fontSize: SizeConfig().fontSize14,
+                                  ),
+                                ],
                               )
                             ],
                           ),
@@ -205,10 +232,19 @@ class CompareScreen extends StatelessWidget {
                                 width: SizeConfig().blockSizeVertical * 5,
                                 height: SizeConfig().blockSizeVertical * 4,
                               ),
-                              CostumeText(
-                                text: 'سعر متر التميز',
-                                color: ApplicationColors().textColor,
-                                fontSize: SizeConfig().fontSize15,
+                              Column(
+                                children: [
+                                  CostumeText(
+                                    text: 'سعر متر التميز',
+                                    color: ApplicationColors().textColor,
+                                    fontSize: SizeConfig().fontSize15,
+                                  ),
+                                  CostumeText(
+                                    text: ' ٠٠. ٤٠٠  ج م',
+                                    color: ApplicationColors().gray,
+                                    fontSize: SizeConfig().fontSize14,
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -263,13 +299,13 @@ class CompareScreen extends StatelessWidget {
                                 children: [
                                   CostumeText(
                                     text: 'المدفوع',
-                                    color: ApplicationColors().textColor,
-                                    fontSize: SizeConfig().fontSize15,
+                                    color: ApplicationColors().gray,
+                                    fontSize: SizeConfig().fontSize14,
                                   ),
                                   CostumeText(
                                     text: ' ٠٠. ٤٠٠  ج م',
-                                    color: ApplicationColors().textColor,
-                                    fontSize: SizeConfig().fontSize15,
+                                    color: ApplicationColors().gray,
+                                    fontSize: SizeConfig().fontSize14,
                                   ),
                                 ],
                               )
@@ -292,8 +328,8 @@ class CompareScreen extends StatelessWidget {
                                   ),
                                   CostumeText(
                                     text: '٠٠. ٤٠٠  ج م',
-                                    color: ApplicationColors().textColor,
-                                    fontSize: SizeConfig().fontSize15,
+                                    color: ApplicationColors().gray,
+                                    fontSize: SizeConfig().fontSize14,
                                   ),
                                 ],
                               )
@@ -338,7 +374,7 @@ class CompareScreen extends StatelessWidget {
                             ),
                           ),
                           VerticalSpace(
-                            space: SizeConfig().blockSizeVertical * 10,
+                            space: SizeConfig().blockSizeVertical * 11,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

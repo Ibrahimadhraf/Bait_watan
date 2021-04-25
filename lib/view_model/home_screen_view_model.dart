@@ -10,9 +10,10 @@ class HomeScreenViewModel extends GetxController {
   ValueNotifier<String> _regionChoice = ValueNotifier('لم يتم الإختيار');
   ValueNotifier<String> _stepChoice = ValueNotifier('لم يتم الإختيار');
   ValueNotifier<String> _districtStep = ValueNotifier('لم يتم الإختيار');
-  ValueNotifier<double> _sliderValueMin = ValueNotifier(0);
-  ValueNotifier<double> _sliderValueMax = ValueNotifier(0);
+  ValueNotifier<double> _sliderValueMin = ValueNotifier(1);
+  ValueNotifier<double> _sliderValueMax = ValueNotifier(500);
   ValueNotifier<Color>_notifierColor=ValueNotifier(Colors.white);
+
   ValueNotifier<List<PremiumModel>>_premiumList=ValueNotifier([
     PremiumModel(item: 'حديقه' ,isClicked: false ),
     PremiumModel(item:  'ناصيه', isClicked: false ),
@@ -21,6 +22,13 @@ class HomeScreenViewModel extends GetxController {
 
 
   ]);
+  var selected;
+  @override
+  void onInit() {
+    super.onInit();
+    selected= RangeValues(sliderValueMin ,sliderValueMax);
+  }
+
   ValueNotifier<bool> _isRemembered = ValueNotifier(false);
 
   bool get isRemember=>_isRemembered.value;
@@ -32,6 +40,7 @@ class HomeScreenViewModel extends GetxController {
   String get step => _stepChoice.value;
   String get district => _districtStep.value;
   Color get selectedColor=>_notifierColor.value;
+
   void selectCity(String city) {
     _cityChoice.value = city;
     update();
@@ -48,9 +57,9 @@ class HomeScreenViewModel extends GetxController {
     _districtStep.value= destrict;
     update();
   }
-  void updateSlider( { double minValue ,double maxValue}) {
-           _sliderValueMin.value=minValue.roundToDouble();
-           _sliderValueMax.value=maxValue.roundToDouble();
+  void updateSlider( {RangeValues values}) {
+    selected=values;
+
     update();
   }
   void toggleRememberMe(bool flag){

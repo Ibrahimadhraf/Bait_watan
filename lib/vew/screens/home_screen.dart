@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                   child: CommonTextControllers.customTextField(
                       labelText: ' ابحث برقم القطعه',
                       inHome: true,
-                      height: SizeConfig().safeBlockVertical * 4,
+                      height: SizeConfig().safeBlockVertical * 5,
                       width: SizeConfig().screenWidth * .6,
                       isObscureText: false,
                       keyboardType: TextInputType.number,
@@ -436,7 +436,9 @@ class HomeScreen extends StatelessWidget {
                                         color: ApplicationColors().textColor,
                                       ),
                                       CostumeText(
-                                        text: '${ref.sliderValueMax}'+'-'+'${ref.sliderValueMin}',
+                                        text: '${ref.selected.start}' +
+                                            '-' +
+                                            '${ref.selected.start}',
                                         fontSize: SizeConfig().fontSize14,
                                         color: ApplicationColors().textColor,
                                       ),
@@ -454,8 +456,10 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                       Image.asset(
                                         'images/plan.png',
-                                        width: SizeConfig().blockSizeVertical * 4,
-                                        height: SizeConfig().blockSizeVertical * 3,
+                                        width:
+                                            SizeConfig().blockSizeVertical * 4,
+                                        height:
+                                            SizeConfig().blockSizeVertical * 3,
                                       )
                                     ],
                                   ),
@@ -467,44 +471,22 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right:8.0 ,left: 8.0),
-                      child:FlutterSlider(
-                        trackBar: FlutterSliderTrackBar(
-                          inactiveTrackBar: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.grey,
-                            border: Border.all(width: 3, color:  Colors.grey),
+                        padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+                        child: RangeSlider(
+                          max: ref.sliderValueMax,
+                          min: ref.sliderValueMin,
+                          activeColor: Colors.brown,
+                          inactiveColor: Colors.grey,
+                          values: ref.selected,
+                          onChanged: (RangeValues value) {
+                            ref.updateSlider(values: value);
+                          },
+                          divisions: 5,
+                          labels: RangeLabels(
+                            ref.selected.start.round().toString(),
+                            ref.selected.end.round().toString(),
                           ),
-                          activeTrackBar: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              color: ApplicationColors().textColor,
-                          ),
-                        ),
-                        handler: FlutterSliderHandler(
-                          decoration: BoxDecoration(),
-                          child: Container(
-                              padding: EdgeInsets.all(5),
-                              child: Icon(Icons.circle, size: SizeConfig().fontSize17,color: ApplicationColors().textColor,)),
-                        ),
-                        values: [30, 420],
-                        rangeSlider: true,
-
-                        max: 500,
-                        min: 0,
-                        rightHandler: FlutterSliderHandler(
-                            decoration: BoxDecoration(),
-
-                          child:Container(
-                              padding: EdgeInsets.all(5),
-                              child:
-
-                          Icon(Icons.circle, size: SizeConfig().fontSize17,color: ApplicationColors().textColor,))
-                        ),
-                        onDragging: (handlerIndex, lowerValue, upperValue) {
-                                         ref.updateSlider(maxValue: upperValue ,minValue: lowerValue);
-                        },
-                      )
-                    ),
+                        )),
                   ],
                 ),
               ),
@@ -514,8 +496,9 @@ class HomeScreen extends StatelessWidget {
                 color: ApplicationColors().textColor,
               ),
               Padding(
-                padding:
-                EdgeInsets.only(right: SizeConfig().blockSizeHorizontal * 5 ,top:SizeConfig().blockSizeHorizontal * 5 ),
+                padding: EdgeInsets.only(
+                    right: SizeConfig().blockSizeHorizontal * 5,
+                    top: SizeConfig().blockSizeHorizontal * 5),
                 child: Column(
                   children: [
                     Row(
@@ -543,38 +526,41 @@ class HomeScreen extends StatelessWidget {
                 color: ApplicationColors().textColor,
               ),
               Padding(
-                padding:  EdgeInsets.only(left:SizeConfig().blockSizeVertical*20),
+                padding:
+                    EdgeInsets.only(left: SizeConfig().blockSizeVertical * 20),
                 child: CheckboxListTile(
-
                   activeColor: ApplicationColors().textColor,
-                  title: CostumeText(text: 'المعروض للبيع', fontSize: SizeConfig().fontSize15,color: ApplicationColors().textColor,),
-                  value:ref.isRemember,
+                  title: CostumeText(
+                    text: 'المعروض للبيع',
+                    fontSize: SizeConfig().fontSize15,
+                    color: ApplicationColors().textColor,
+                  ),
+                  value: ref.isRemember,
                   onChanged: (newValue) {
                     ref.toggleRememberMe(newValue);
                   },
-                  controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
+                  controlAffinity:
+                      ListTileControlAffinity.leading, //  <-- leading Checkbox
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   child: Container(
-                    width: SizeConfig().blockSizeVertical*40,
-                    height: SizeConfig().blockSizeVertical*6,
+                    width: SizeConfig().blockSizeVertical * 40,
+                    height: SizeConfig().blockSizeVertical * 6,
                     decoration: BoxDecoration(
                         color: ApplicationColors().textColor,
                         border: Border.all(
                           color: ApplicationColors().textColor,
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular( SizeConfig().blockSizeVertical*25))
-                    ),
+                        borderRadius: BorderRadius.all(Radius.circular(
+                            SizeConfig().blockSizeVertical * 25))),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Center(
-                        child: GestureDetector(
-                          onTap: (){
-
-                          },
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Center(
                           child: CostumeText(
                             text: 'بحث',
                             color: Colors.white,
